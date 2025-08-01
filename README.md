@@ -10,7 +10,7 @@ Posts one image per day from all the images of the specified folder into your Di
 crontab -e # open cronjob editor
 
 # add a line like this:
-# 0 */24 * * *  cd /home/raspi/mangabot && source .venv/bin/activate && python3 run.py" >> cr
+# 0 18 * * *  /home/raspi/mangabot/.venv/bin/python /home/raspi/mangabot/run.py
 
 crontab -l # save
 ```
