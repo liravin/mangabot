@@ -44,7 +44,7 @@ async def on_ready():
         if not channel:
             raise LookupError(f"Channel with ID {CHANNEL_ID} not found.")
 
-        await channel.send(file=DiscordFile(image_path))
+        await channel.send(content="@everyone", file=DiscordFile(image_path))
 
     except Exception as e:
         print(f"An error occurred: {e}")
