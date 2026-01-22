@@ -16,3 +16,4 @@ crontab -l # save
 ```
 
 This best runs on a remote server or a raspberry pi or similar. 
+It is recommended to use `uv` as `pip`-wrapper on slower devices. 
