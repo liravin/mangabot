@@ -36,6 +36,10 @@ async def on_ready():
         today = date.today()
         days_passed = (today - START_DATE).days - DAYS_MISSED
 
+        if days_passed < 0:
+            logging.info(f"Not time yet: {days_passed=}")
+            return
+
         index = days_passed % len(files)
         image_path = join(IMAGE_FOLDER, files[index])
 
