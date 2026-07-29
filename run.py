@@ -53,7 +53,7 @@ async def on_ready():
         await channel.send(content="@everyone", file=DiscordFile(image_path))
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        logging.exception(f"An error occurred: {e}")
     finally:
         await client.close()
 
