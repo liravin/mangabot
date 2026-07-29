@@ -14,6 +14,7 @@ DISCORD_TOKEN = env.str("DISCORD_TOKEN")
 CHANNEL_ID = env.int("CHANNEL_ID")
 IMAGE_FOLDER = env.str("IMAGE_FOLDER")
 START_DATE = datetime.strptime(env.str("START_DATE"), "%Y-%m-%d").date()
+DAYS_MISSED = env.int("DAYS_MISSED")
 LOG_FILE = env.str("LOG_FILE")
 
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
@@ -33,7 +34,8 @@ async def on_ready():
             raise ValueError(f"No files found in {IMAGE_FOLDER}.")
 
         today = date.today()
-        days_passed = (today - START_DATE).days
+        days_passed = (today - START_DATE).days - DAYS_MISSED
+
         index = days_passed % len(files)
         image_path = join(IMAGE_FOLDER, files[index])
 
